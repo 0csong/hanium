@@ -109,8 +109,8 @@ class CameraDetection:
                 break
             
         self.srcQuad = self.reorder_points(self.approx_points.reshape(4, 2).astype(np.float32))      
-        perspective = cv2.getPerspectiveTransform(self.srcQuad, self.dstQuad)
-        dst_frame = cv2.warpPerspective(self.frame, perspective, (self.dstWidth, self.dstHeight))
+        perspective = cv2.getPerspectiveTransform(self.srcQuad, self.dstQuad)#srcquad가 dstquad로 변환
+        dst_frame = cv2.warpPerspective(self.frame, perspective, (self.dstWidth, self.dstHeight))#dst로 된것을 
         
         capture.release()
         cv2.destroyAllWindows()
@@ -123,9 +123,9 @@ def ocr(image):
     ret, buffer = cv2.imencode('.png', image)
     png_as_text = base64.b64encode(buffer)
     
-    x_ocr_secret = "ZlBWaUFqdFp4bVFZTUpnTHZucGVwZFVOZUt3cllVY0o="
-    ocr_invoke_url = "https://f04b1d88f83e41a6b1df8ce399b61fb5.apigw.ntruss.com/custom/v1/9782/eed9df9be97433637c2950146e96ff0956759904a38b1e5e6a9a69a7f6691a68/general"
-    uuid = "ce3e4c43-4c69-4188-ba2a-8ad24d9615e4"
+    x_ocr_secret = "ZlBWaUFqdFp4bVFZTUpnTHZucGVwZFVOZUt3cllVY0o=" #나만의 key
+    ocr_invoke_url = "https://f04b1d88f83e41a6b1df8ce399b61fb5.apigw.ntruss.com/custom/v1/9782/eed9df9be97433637c2950146e96ff0956759904a38b1e5e6a9a69a7f6691a68/general" #클라우드주소
+    uuid = "ce3e4c43-4c69-4188-ba2a-8ad24d9615e4" #나만의 식별코드
     
     headers = {
         "X-OCR-SECRET" : x_ocr_secret,
