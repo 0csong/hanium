@@ -9,6 +9,4 @@ https://www.hanium.or.kr/portal/project/awardView.do
 
 * notion 주소 → https://www.notion.so/ee5f89f1df434be58977cd37b59fda03?v=1528f4086fff4aaca7c15e1ac1e02900 
 
-* sql로 할시 rds에서 ip승인필요
-
-* 조인포인트가 필요 그냥 각각 ocr과 depth, sorted보낼경우 알기힘듬
+* sql로 할시 rds에서 ip승인
